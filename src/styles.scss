@@ -1,1 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
+p{
+    color: #CCC;
+    margin-bottom: 0 !important;
+}
+.xAxisGroup path{
+    stroke: #345571
+}
+.yAxisGroup path{
+    stroke: #345571
+}

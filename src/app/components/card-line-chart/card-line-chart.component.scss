@@ -1,0 +1,28 @@
+p{
+    color: #CCC;
+    margin-bottom: 0 !important;
+    margin-right: 16px;
+    position: relative;
+    top: 2px;   
+}
+.title-text{
+    font-size: 10px;
+}
+.value-text{
+    font-size: 14px;
+    font-weight: 500;
+}
+.line-data-wrap{
+    margin: 8px 0;
+}
+.graph-wrap{
+    display: flex;
+    align-items: center;
+}
+.axisGrey path{
+    stroke: #3f8891;
+    stroke-width: 4px;
+}
+.chart{
+    position: relative;
+}

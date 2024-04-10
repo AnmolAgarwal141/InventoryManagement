@@ -1,0 +1,91 @@
+<div class="detail-parent">
+    <div *ngIf="!hidebar" class="left-side-wrap">
+        <div class="left-side-head">
+            <img src="assets/images/back.png" alt="back" class="img img-back" (click)="navigateBack()">
+            <div class="page-box-wrap">
+                <div *ngFor="let page of paginator" class="page-boxes" [ngClass]="{'active-box':page}"></div>
+            </div>
+            <p>Sample Stack</p>
+            <ul class="nav nav-pills">
+                <li class="nav-item active-nav" (click)="selectNavItem($event,'Backlog')">
+                    Backlog <span>({{backlogProjects.length}})</span>
+                </li>
+                <li class="nav-item" (click)="selectNavItem($event,'Pending')">
+                    Pending <span>({{pendingProjects.length}})</span>
+                </li>
+                <li class="nav-item" (click)="selectNavItem($event,'Final')">
+                    Final Sign-Off <span>({{finalProjects.length}})</span>
+                </li>
+            </ul>
+        </div>
+        <div class="left-side-body">
+            <div *ngIf="inventoryArray.length>0" class="d-flex filter-wrap">
+                <p class="filter-text">Filter</p>
+                <img src="assets/images/filter.svg" alt="filter" class="img img-filter">   
+            </div>
+            <div *ngFor="let sale of inventoryArray; index as i">
+                <app-inventory-card [data]="sale" [active]="activeArr[i]" class="sale-item" (click)="selectCard($event,sale,i)"></app-inventory-card>  
+            </div>
+            <div *ngIf="inventoryArray.length==0">
+                <p class="no-data-text">No Sales Project Available</p>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="hidebar" class="left-side-wrap-hide">
+
+    </div>
+    <div *ngIf="selectedData" class="right-side-wrap" [ngClass]="{'right-wrap-hide':hidebar}">
+        <div>
+            <img src="assets/images/left-arrow.svg" class="img img-back-arrow" [ngClass]="{'hide-back-arrow':hidebar}" (click)="hideLeftBar()">
+        </div>
+        <div class="right-side-top">
+            <div class="right-side-name">
+                <img src="assets/images/warning.svg" class="img">
+                <p class="project-name-text">{{selectedData.projectName}}</p>
+            </div>
+            <div class="right-side-detail">
+                <p class="project-id-text">Stack Id: {{selectedData.stackId}}</p>
+                <img src="assets/images/list.svg" class="img">
+            </div>
+            <div class="card forecast-card">
+                <div class="forecast-div"><p class="project-forecast-text">FORECAST</p><p class="project-forecast-percent">{{selectedData.forecastPercent1}}</p></div>
+                <div><p class="project-forecast-text">FORECAST</p><p class="project-forecast-percent">{{selectedData.forecastPercent2}}</p></div>
+            </div>   
+        </div>
+        <div class="right-side-top-next">
+            <img src="assets/images/document.svg" class="img img-doc">
+            <p class="right-side-text">SPECIAL REUIREMENTS</p>
+            <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                <label class="form-check-label" for="flexSwitchCheckDefault">INCLUDE</label>
+            </div>
+            <img src="assets/images/down-arrow.svg" class="img img-arrow">
+        </div>
+        <div class="right-side-main">
+            <app-main-line-chart [data]="selectedData" class="chart-main"></app-main-line-chart>
+        </div>
+        <div class="right-side-bottom">
+            <div class="right-side-table-value right-table-border" [ngClass]="{'right-table-onshift':hidebar}">
+                <p class="data-text data-value">Data 1</p>
+                <div class="d-flex">
+                    <p class="data-text" *ngFor="let tableData of selectedData.chartData">{{tableData.forecastAIValue}}</p>
+                </div>
+            </div>
+            <div class="right-side-table-value right-table-border" [ngClass]="{'right-table-onshift':hidebar}">
+                <p class="data-text data-value">Data 2</p>
+                <div class="d-flex">
+                    <p class="data-text" *ngFor="let tableData of selectedData.chartData">{{tableData.PreValue}}</p>
+                </div>
+            </div>
+            <div class="right-side-table-value" [ngClass]="{'right-table-onshift':hidebar}">
+                <p class="data-text data-value">Data 3</p>
+                <div class="d-flex">
+                    <p class="data-text" *ngFor="let tableData of selectedData.chartData">{{tableData.forecastfinalValue}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="!selectedData" class="right-side-wrap" [ngClass]="{'right-wrap-hide':hidebar}">
+        <p class="no-data-text">Select a sales project to view details.</p>
+    </div>
+</div>

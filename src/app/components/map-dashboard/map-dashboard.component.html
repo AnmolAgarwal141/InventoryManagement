@@ -1,0 +1,20 @@
+<div class="world-map-layout">
+    <div class="layout-detail">
+        <p class="user-text">Hello User!</p>
+        <img src="assets/images/layout.png" alt="changelayout" class="img-layout" title="Change Layout" (click)="changeLayout()">
+    </div>
+    <div class="each-card-parent {{layout}}">
+        <!-- <carousel *ngIf="layout=='top-card' || layout=='bottom-card'"  [cellsToShow]="4" [arrows]="true" class="carousel-wrap">
+            <div *ngFor="let eachData of data;index as i" class="carousel-cell" (click)="redirectToDetails(eachData.name)">
+                <app-card-dashboard [cardData]="eachData"></app-card-dashboard>
+            </div>
+        </carousel> -->
+            <img src="assets/images/prev-arrow.svg" class="img-action img-prev" [ngClass]="{'disable-pointers':lower<=0,'rotate90':layout=='right-card'||layout=='left-card'}" (click)="prevElement()">
+            <div *ngFor="let eachData of filterdata" class="each-card" (click)="redirectToDetails(eachData.name)">
+                <app-card-dashboard [cardData]="eachData"></app-card-dashboard>
+            </div>
+            <img src="assets/images/prev-arrow.svg" class="img-action img-next" [ngClass]="{'disable-pointers':higher>=data.length,'rotate-90':layout=='right-card'||layout=='left-card'}" (click)="nextElement()">
+
+    </div>
+    <svg #chart width="1366" height="588" class="svg-wrap"></svg>
+  </div>

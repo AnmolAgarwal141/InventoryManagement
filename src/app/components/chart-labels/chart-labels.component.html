@@ -1,0 +1,31 @@
+<div class="each-label">
+      <div *ngIf="data.progressFlag" class="form-check form-switch">
+        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault-{{data.title}}" (change)="valueChanged($event)">
+        <label class="form-check-label" for="flexSwitchCheckDefault-{{data.title}}">
+            <div class="colored-line" [ngStyle]="{'background-color':data.color}"></div>
+            <p class="label-text">{{data.title}}</p>
+        </label>
+      </div>
+      <div *ngIf="!data.progressFlag" class="hor-wrap">
+            <div class="colored-line-hor" [ngStyle]="{'border-color':data.color,'border-style':data.type}"></div>
+            <p class="label-text">{{data.title}}</p>
+      </div>
+    <div *ngIf="data.progressFlag" class="progress-wrap">
+      <circle-progress
+      [percent]="data.progress"
+      [radius]="5"
+      [outerStrokeWidth]="2"
+      [innerStrokeWidth]="1"
+      [outerStrokeColor]="'#88e8ff'"
+      [innerStrokeColor]="'#C7E596'"
+      [animation]="true"
+      [animationDuration]="300"
+      [showTitle]="false"
+      [showSubtitle]="false"
+      [showUnits]="false"
+      [imageHeight]="36"
+      [imageWidth]="36"
+    ></circle-progress>
+    <p class="percent-text">{{data.progress}}</p>
+    </div>
+</div>

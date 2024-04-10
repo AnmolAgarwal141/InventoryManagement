@@ -1,0 +1,9 @@
+<div class="container">
+    <div class="heading-wrap"><p class="hist-text">HISTORICAL</p><p class="fore-text">FORECAST</p></div>
+    <div class="label-wrap">
+      <div *ngFor="let data of labelData">
+        <app-chart-labels class="data-label" [data]="data" (switchToggle)="toggleLineChart($event,data)"></app-chart-labels>
+      </div>
+    </div>
+    <svg id="linechart"></svg>
+  </div>

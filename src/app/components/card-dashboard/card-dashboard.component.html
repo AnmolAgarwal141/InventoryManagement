@@ -1,0 +1,12 @@
+<div class="card">
+    <div class="card-top-wrap">
+        <div class="circle {{cardData.color}}"></div>
+        <p class="country-name">{{cardData.name}}</p>
+    </div>
+    <div>
+        <app-card-line-chart [configData]="data1"></app-card-line-chart>
+    </div>
+    <div>
+        <app-card-line-chart [configData]="data2"></app-card-line-chart>
+    </div>
+</div>

@@ -1,0 +1,41 @@
+.refLine {
+    fill: none;
+    stroke: purple;
+    stroke-width: 2.5px;
+    stroke-dasharray: 5 5;
+}
+.heading-wrap{
+    display: flex;
+    justify-content: center;
+    margin-left: 6px;
+    width: 940px;
+}
+.hist-text{
+    color: #CCC;
+    font-weight: 600;
+    font-size: 13px;
+}
+.fore-text{
+    color: #88e8ff;
+    font-weight: 600;
+    font-size: 13px;
+    margin-left: 16px;
+}
+.container{
+    position: relative;
+}
+.label-wrap{
+    width: 100%;
+    display: flex;
+    position: relative;
+    z-index: 1000;
+
+    // position: absolute;
+    // top: 6px;
+}
+#linechart{
+   margin-top: -28px;
+}
+.v-hide{
+    visibility: hidden;
+}

@@ -1,0 +1,17 @@
+.header-wrap{
+    display: flex;
+    justify-content: space-between;
+    padding: 16px;
+    align-items: center;
+    background-color: black;
+}
+.header-imgs{
+    width: 16px;
+    height: 16px;
+    margin-right: 6px;
+    filter: invert(1);
+}
+.header-text{
+    font-size: 13px;
+    font-weight: 500;
+}
